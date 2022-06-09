@@ -1,0 +1,126 @@
+$black: #000;
+$white: #fff;
+$primary: #be2857;
+$grey: #ccc;
+$dark-grey: #7f7f7f;
+$antiflash-white: #f0f0f0;
+$light-grey: #eaeaea;
+$philippine-gray: #929292;
+$dark-green: #231F1D;
+$DimGray: #696969;
+$cyan: #55c5cf;
+@mixin breakpoint($point) {
+    @if $point == desktop {
+      @media (max-width: 1320px) { @content; }
+    }
+    @else if $point == tablet {
+      @media (max-width: 768px) { @content; }
+    }
+    @else if $point == mobile {
+      @media (max-width: 576px)  { @content; }
+    }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote
+{
+  margin: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+//   color: $black;
+//   font-family: $roboto-regular;
+  letter-spacing: -.5px
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+.button {
+    width: auto;
+    border: none;
+    padding: 10px;
+}
+.button-primary {
+    color: $white;
+    background-color: $primary;
+}
+
+.button-secondary {
+    color: $black;
+    background-color: $light-grey;
+}
+.textfield {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+label {
+    position: absolute;
+    font-size: 1rem;
+    left: 0;
+    top: 20%;
+    background-color: white;
+    color: $dark-grey;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+}
+  
+input {
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $dark-grey;
+    padding: 1rem 0;
+    color: $black;
+    transition: 0.1s ease-out;
+    width: 100%;
+    &:focus {
+        border-color: $cyan;  
+    }
+}
+  
+input:focus + label {
+    color: $cyan;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+}
+
+input:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+}
+.errorText {
+    color: $primary;
+}

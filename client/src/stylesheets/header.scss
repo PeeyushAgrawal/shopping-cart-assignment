@@ -1,0 +1,156 @@
+.navLinkBlock {
+    display: flex;
+    align-items: center;
+    .nav-item {
+        padding: .2rem .5rem;
+        .navlinks {
+            text-decoration: none;
+            color: $dark-grey;
+        }
+    }
+    @include breakpoint(mobile) {
+        display: none;
+    }
+}
+.headerRightBlock {
+    text-align: end;
+    .authBlock {
+        .auth-links-list {
+            list-style: none;
+            display: inline-flex;
+            .auth-links {
+                padding: .2rem .5rem;
+                .navlinks {
+                    text-decoration: none;
+                    color: $dark-grey;
+                }
+            }
+        }
+        @include breakpoint(mobile) {
+            display: none;
+        }
+    }
+}
+.cartBlock {
+    float: right;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 135px;
+      @include breakpoint(mobile) {
+        padding: 8px;
+        width: 120px;
+      }
+      img {
+        width: 35px;
+        color: $primary;
+        @include breakpoint(mobile) {
+          width: 25px;
+        }
+      }
+      span {
+        margin-left: 8px;
+        @include breakpoint(mobile) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+.show {
+    .modal-dialog {
+        min-width: 650px;
+        position: absolute;
+        right: 12%;
+        top: 60px;
+        @include breakpoint(mobile) {
+            width: 100%;
+            min-width: unset;
+            margin: 0;
+            right: unset;
+            top: 75px;
+        }
+    }
+    .modal-content {
+        .modal-header {
+            background-color: $dark-green;
+            color: $white;
+        }
+        .btn-close {
+            color: $white;
+            opacity: 1;
+        }
+        .modal-body {
+            background-color: $light-grey;
+            padding: 0;
+            .cartItems {
+                display: flex;
+                align-items: center;
+                background-color: $white;
+                margin: 16px 0;
+                .cartItems__ImageWrapper {
+                    width: 20%;
+                }
+                .cartItems__detailsWrapper {
+                    width: 80%;
+                    padding-left: 16px;
+                    .cartItems__heading {
+                        margin-bottom: pxToEm(8px);
+                    }
+                    .cartItems__itemcount {
+                        button {
+                            background-color: $primary;
+                            color: $white;
+                            border-radius: 50%;
+                            border: none;
+                            width: 23px;
+                            padding: 0;
+                        }
+                        span {
+                            margin: 0 16px;
+                            &:last-child {
+                            float: right;
+                            margin-left: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+            .cartItems__tagLine {
+                display: flex;
+                align-items: center;
+                background-color: $white;
+                padding: 16px;
+                margin: 16px;
+                span {
+                    padding-left: 20px;
+                }
+            }
+        }
+        .modal-footer {
+            .cartItems__promoCode {
+                width: 100%;
+                .cartItems__promoCodeMessage {
+                    text-align: center;
+                    margin-bottom: 8px;
+                }
+                .cartItems__promoCodeButton {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 16px;
+                    color: $white;
+                    background-color: $primary;
+                    border: none;
+                    .cartItems__promoCodeButtonPrice {
+                        &:after {
+                            content: " \003E";
+                            padding-left: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

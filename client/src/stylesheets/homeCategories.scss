@@ -1,0 +1,62 @@
+.banner {
+    display: flex;
+    min-height: 320px;
+    box-shadow: 0 15px 10px -15px $black;
+    padding: 9px 0;
+    &:last-child {
+      box-shadow: none;
+    }
+    @include breakpoint(mobile) {
+      min-height: 250px;
+    }
+    .catImageBlock {
+      width: 40%;
+      display: grid;
+      place-items: center;
+      @include breakpoint(mobile) {
+        display: flex;
+      }
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .catDataBlock {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      @include breakpoint(mobile) {
+        font-size: 12px;
+      }
+      .catHeading {
+        margin-bottom: .5rem;
+        @include breakpoint(mobile) {
+          font-size: 18px;
+        }
+      }
+      .catDescription {
+        margin-bottom: .5rem;
+        padding: 0 1rem;
+        @include breakpoint(mobile) {
+          font-size: 14px;
+          padding: 0;
+        }
+      }
+      .catButton {
+        width: auto;
+        margin: 0 auto;
+        background-color: $primary;
+        color: $white;
+        border: none;
+        padding: .4rem .6rem;
+        @include breakpoint(mobile) {
+          font-size: 14px;
+        }
+      }
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }

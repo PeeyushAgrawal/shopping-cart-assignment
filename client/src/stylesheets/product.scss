@@ -1,0 +1,176 @@
+.productsLeftBlock {
+    background-color: $light-grey;
+    .categoryBlock {
+        .categoryBlockSelector {
+            display: none;
+            @include breakpoint(mobile) {
+              display: block;
+              background-color: $primary;
+              color: $white; 
+              padding: .7rem;
+              display: flex;
+              justify-content: space-between;
+              &:after {
+                content: '';
+                width: 16px;
+                height: 2px;
+                display: inline-block;
+                background-color: $white;
+                transform: rotate(-135deg);
+                transform-origin: top;
+                position: absolute;
+                right: 9.8%;
+                top: 12.4%;
+                transition: transform 0.5s ease-in-out;
+              }
+              &:before {
+                content: '';
+                width: 16px;
+                height: 2px;
+                display: inline-block;
+                background-color: $white;
+                transform: rotate(135deg);
+                position: absolute;
+                top: 12%;
+                right: 6%;
+                transition: transform 0.5s ease-in-out;
+              }
+              &.open:after {
+                transform: rotate(135deg);
+                transition: transform 0.5s ease-in-out;
+              }
+              &.open:before {
+                transform: rotate(45deg);
+                transition: transform 0.5s ease-in-out;
+              }
+            }
+        }
+        .categoryList {
+            padding-left: .5rem;
+            @include breakpoint(mobile) {
+              padding-left: 0;
+              position: absolute;
+              width: 100%;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              transform: translateY(-280px);
+              z-index: 1;
+            }
+            @include breakpoint(mobile) {
+              &.open {
+                animation-name: expand;
+                animation-duration: .5s;
+                transform: translateY(-141px);
+                z-index: 1;
+              }
+              &.close {
+                animation-name: compress;
+                animation-duration: .5s;
+                transform: translateY(-513px);
+              }
+            }
+            list-style: none;
+            padding: inherit;
+            .categoryDetail {
+                border-bottom: 1px solid $grey;
+                color: $philippine-gray;
+                background-color: $light-grey;
+                cursor: pointer;
+                span {
+                    padding: 1rem;
+                    display: block;
+                    &.active {
+                        border-bottom: 3px solid $philippine-gray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.productlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .productBlock {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      padding: .5rem;
+      margin-bottom: 2rem;
+      @include breakpoint(tablet) {
+        width: 50%;
+      }
+      @include breakpoint(mobile) {
+        width: 100%;
+      }
+      .productBlockHeading {
+        margin-bottom: .5rem;
+        min-height: 100px;
+        max-height: 111px;
+      }
+      .productBlockWrapper {
+        .productImageBlock {
+          .productImage {
+            width: 100%;
+            max-height: 240px;
+            margin-bottom: .5rem;
+          }
+        }
+        .productDescBlock {
+          .productDesc {
+            word-break: break-word;
+            margin-bottom: .6rem;
+            padding: .7rem;
+            background-color: $antiflash-white;
+            min-height: 195px;
+            letter-spacing: -0.25px;
+            @include breakpoint(mobile) {
+              min-height: auto;
+            }
+          }
+        }
+        .productPriceBlock {
+          display: flex;
+          margin-top: auto;
+          justify-content: space-between;
+          margin-top: .6rem;
+          border-bottom: 1px dotted;
+          padding-bottom: 0.6rem;
+          align-items: center;
+          .productPrice {
+            letter-spacing: -1px;
+            @include breakpoint(tablet) {
+              display: none;
+            }
+          }
+          .pButton {
+            width: auto;
+            border: none;
+            padding: .5rem 2rem;
+            &.buynowButton {
+              background-color: $primary;
+              color: $white;
+              @include breakpoint(tablet) {
+                width: 100%;
+              }
+              .buynowTButton {
+                display: none;
+                @include breakpoint(tablet) {
+                  display: inline-block;
+                }
+              }
+            }
+            &.atcButton {
+              color: $white;
+              background-color: $primary;
+              padding: .5rem;
+              pointer-events: none;
+            }
+          }
+          
+        }
+      }
+    }
+  }
