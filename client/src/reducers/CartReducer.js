@@ -22,13 +22,13 @@ const cartSlice = createSlice({
 			}
 		},
 
-		addCartItemCount: (state, action) => {
+		addCartItemQty: (state, action) => {
 			state = state.map((item) =>
 				item.id === action.payload ? item.qty++ : item
 			);
 		},
 
-		subtractCartItemCount: (state, action) => {
+		decreaseCartItemQty: (state, action) => {
 			const existingItem = state.filter(
 				(item) => item.id === action.payload
 			);

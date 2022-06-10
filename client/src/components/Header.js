@@ -16,11 +16,11 @@ const Header = () => {
 
 	const dispatch = useDispatch();
 	const increaseQty = (id) => {
-		dispatch(cartActions.addCartItemCount(id));
+		dispatch(cartActions.addCartItemQty(id));
 	};
 
 	const decreaseQty = (id) => {
-		dispatch(cartActions.subtractCartItemCount(id));
+		dispatch(cartActions.decreaseCartItemQty(id));
 	};
 
 	return (
