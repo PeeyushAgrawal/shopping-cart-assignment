@@ -132,12 +132,10 @@
           }
         }
         .productPriceBlock {
-          display: flex;
-          margin-top: auto;
-          justify-content: space-between;
-          margin-top: .6rem;
+          padding-bottom: 0.7rem;
           border-bottom: 1px dotted;
-          padding-bottom: 0.6rem;
+          display: flex;
+          justify-content: space-between;
           align-items: center;
           .productPrice {
             letter-spacing: -1px;

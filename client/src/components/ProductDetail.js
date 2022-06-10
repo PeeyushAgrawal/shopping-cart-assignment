@@ -20,18 +20,20 @@ const ProductCard = (props) => {
         <div className='productDescBlock col-md-12 col-6'>
           <p className='productDesc'>{product.description}</p>
         </div>
-        <div className='productPriceBlock'>
-          <span className='productPrice'>{`MRP Rs.${product.price}`}</span>
-          {
-            cartValue
-              ? <button className='pButton atcButton'>Added to Cart</button>
-              : <button className='pButton buynowButton' onClick={ () => addToCart(product)}>
-                Buy now
-                <span className='buynowTButton'>&nbsp;{`@ Rs.${product.price}`}</span>
-                </button>
-          }
+        <div className='col-md-12 col-12'>
+          <div className='productPriceBlock'>
+            <span className='productPrice'>{`MRP Rs.${product.price}`}</span>
+            {
+              cartValue
+                ? <button className='pButton atcButton'>Added to Cart</button>
+                : <button className='pButton buynowButton' onClick={ () => addToCart(product)}>
+                  Buy now
+                  <span className='buynowTButton'>&nbsp;{`@ Rs.${product.price}`}</span>
+                  </button>
+            }
 
-        </div>
+            </div>
+          </div>
       </div>
     </div>
   )

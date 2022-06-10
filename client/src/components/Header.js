@@ -61,21 +61,21 @@ const Header = () => {
 						</div>
 						<Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="">
 							<Modal.Header closeButton closeVariant={'white'}>
-								<Modal.Title id="example-custom-modal-styling-title">
+								<Modal.Title>
 									My Cart({totalQty})
 								</Modal.Title>
 							</Modal.Header>
-							<Modal.Body>
-							{
+							<Modal.Body className={`${totalQty === 0 ? "modalContent" : ""}`}>
+							{ totalQty !== 0 ?
 								cartItems.map((item, index) => {
 								return (
 									<div key={item.id || index} className="cartItems">
-										<div className="cartItems__ImageWrapper">
+										<div className="cartItemsImageWrapper">
 											<img src={item.imageURL} alt={item.name} />
 										</div>
-										<div className="cartItems__detailsWrapper">
-											<h3 className="cartItems__heading">{item.name}</h3>
-											<div className="cartItems__itemcount">
+										<div className="cartItemsDetails">
+											<h3 className="cartItemsHeading">{item.name}</h3>
+											<div className="cartItemsPriceQty">
 												<button onClick={() => decreaseQty(item.id)}>-</button> 
 												<span>{item.qty}</span> 
 												<button onClick={() => increaseQty(item.id)}>+</button> 
@@ -87,19 +87,35 @@ const Header = () => {
 									</div>
 								)
 								})
+								: 
+								<div className="cartempty">
+									<h4>No Items in your Cart</h4>
+									<span>Your Favourite items are just a click away</span>
+								</div>
 							}
-							<div className="cartItems__tagLine">
-								<img src={lowestPrice} alt="Lowest Price" />
-								<span>You won't find it cheaper anywhere</span>
-							</div>
+							{
+								totalQty !== 0 ? 
+								<div className="cartItemsLine">
+									<img src={lowestPrice} alt="Lowest Price" />
+									<span>You won't find it cheaper anywhere</span>
+								</div>
+								: ''
+							}
 							</Modal.Body>
-							<Modal.Footer>
-							<div className="cartItems__promoCode">
-								<p className="cartItems__promoCodeMessage">Promo code can be applied on the payment page</p>
-								<button className="cartItems__promoCodeButton">
-								<span>Proceed to Checkout</span><span className="cartItems__promoCodeButtonPrice">Rs.{totalPrice}</span>
-								</button>
-							</div>
+							<Modal.Footer className={`${totalQty === 0 ? "modalFooter" : ""}`}>
+							    {
+									totalQty !== 0 ?
+										<div className="promoCode">
+											<p className="promoCodeDesc">Promo code can be applied on the payment page</p>
+											<button className="promoCodeButton">
+											<span>Proceed to Checkout</span><span className="promoCodeButtonPrice">Rs.{totalPrice}</span>
+											</button>
+										</div>
+									: 
+									<div className='emptyCartFooter'>
+										<button className='startShopping button button-primary'> Start Shopping</button>
+									</div>
+								}
 
 							</Modal.Footer>
 						</Modal>
