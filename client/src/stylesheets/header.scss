@@ -30,6 +30,9 @@
             display: none;
         }
     }
+    @include breakpoint(mobile) {
+        padding-right: unset;
+    }
 }
 .cartBlock {
     float: right;

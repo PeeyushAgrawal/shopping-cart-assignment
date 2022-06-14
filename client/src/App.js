@@ -6,8 +6,10 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Product from './components/Product';
 import Header from './components/Header';
+import Cart from './components/Cart';
 import Home from './components/home/Home';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { isMobile, isTablet } from 'react-device-detect';
 import { Provider } from 'react-redux';
 import store from './Store/store';
 
@@ -23,6 +25,7 @@ function App() {
             <Route path="/signin" element={<Login/>}/>
             <Route path="/product" element={<Product/>}/>
             <Route path="/product/:id" element={<Product/>}/>
+            <Route path="/cart" element={isMobile || isTablet ? <Cart/>: <Navigate to="/" replace />}/>
           </Routes>
         </BrowserRouter>
       </Provider>

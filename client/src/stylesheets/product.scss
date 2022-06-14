@@ -59,12 +59,11 @@
             }
             @include breakpoint(mobile) {
               &.open {
-                animation-name: expand;
-                animation-duration: .5s;
-                transform: translateY(-141px);
+                top: 372px;
                 z-index: 1;
               }
               &.close {
+                display: none;
                 animation-name: compress;
                 animation-duration: .5s;
                 transform: translateY(-513px);

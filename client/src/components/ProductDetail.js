@@ -11,7 +11,7 @@ const ProductCard = (props) => {
         dispatch(cartActions.addToCart(item));
     }
   return (
-    <div className='productBlock col-md-3'>
+    <div className='productBlock col-md-6 col-lg-3'>
       <h4 className='productBlockHeading'>{product.name}</h4>
       <div className='productBlockWrapper row'>
         <div className='productImageBlock col-md-12 col-6'>

@@ -124,3 +124,6 @@ input:not(:placeholder-shown) + label {
 .errorText {
     color: $primary;
 }
+.navlinks {
+  text-decoration: none;
+}

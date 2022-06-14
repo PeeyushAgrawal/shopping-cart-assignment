@@ -1,0 +1,73 @@
+.cpBlock {
+    background-color: $light-grey;
+    min-height: 75vh;
+    .cpHeading {
+        padding-top: 1rem;
+        .cartHeading {
+            background-color: $white;
+            padding: 1rem;
+        }
+    }
+    .cartitemBlock {
+        display: flex;
+        min-height: 65vh;
+        align-items: center;
+        flex-grow: 1;
+        .cartempty {
+            flex-grow: inherit;
+            text-align: center;
+        }
+    }
+    .noItem {
+        background-color: $white;
+    }
+    .emptyCartFooter {
+        background-color: $white;
+        padding: 1rem;
+        button {
+            width: 100%;
+        }
+    }
+    .cartItemsLine{
+        background-color: $white;
+        padding: 16px;
+        margin: 16px;
+        border-radius: 5px;
+        text-align: center;
+        img {
+            margin: auto;
+        }
+    }
+    .promoCode {
+        background-color: $white;
+        padding: 1rem;
+        text-align: center;
+        .promoCodeButton {
+            width: 100%;
+        }
+    }
+    .cartItems {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        margin: 16px 0;
+        .cartItemsPriceQty {
+            button {
+                background-color: $primary;
+                color: $white;
+                border-radius: 5px;
+                border: none;
+                width: 23px;
+                padding: 0;
+                margin-right: .5rem;
+            }
+            span {
+                margin-right: .5rem;
+                &:last-child {
+                float: right;
+                margin-left: 12px;
+                }
+            }
+        }
+    }
+}

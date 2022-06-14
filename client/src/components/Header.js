@@ -4,12 +4,14 @@ import Logo from '../images/logo.png';
 import Modal from 'react-bootstrap/Modal';
 import lowestPrice from '../images/lowest-price.png';
 import cartIcon from '../images/cart.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useCartDetails from '../services/useCartDetails';
 import { cartActions } from '../reducers/CartReducer';
 import { useSelector, useDispatch } from 'react-redux';
+import {isMobile, isTablet} from 'react-device-detect';
 
 const Header = () => {
+	let navigate = useNavigate();
 	const { totalPrice, totalQty } = useCartDetails();
 	const [show, setShow] = useState(false);
 	const cartItems = useSelector((state) => state.cart);
@@ -21,6 +23,14 @@ const Header = () => {
 
 	const decreaseQty = (id) => {
 		dispatch(cartActions.decreaseCartItemQty(id));
+	};
+
+	const handleCart = () => {
+		if (isMobile || isTablet) {
+			navigate(`cart`, { replace: true });
+		} else {
+			setShow(true)
+		}
 	};
 
 	return (
@@ -54,10 +64,17 @@ const Header = () => {
 							</ul>
 						</div>
 						<div className='cartBlock'>
-							<button className='cartButton button button-secondary' onClick={() => setShow(true)}>
-								<span><img src={cartIcon} alt="cart"/></span>
-								<span>{totalQty} Items</span>
-							</button>
+							{isMobile || isTablet ?
+								<Link to="/cart" className="navlinks"><button className='cartButton button button-secondary' onClick={handleCart}>
+									<span><img src={cartIcon} alt="cart"/></span>
+									<span>{totalQty} Items</span>
+								</button></Link>
+								:
+								<button className='cartButton button button-secondary' onClick={() => setShow(true)}>
+									<span><img src={cartIcon} alt="cart"/></span>
+									<span>{totalQty} Items</span>
+								</button>
+							}
 						</div>
 						<Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="">
 							<Modal.Header closeButton closeVariant={'white'}>
