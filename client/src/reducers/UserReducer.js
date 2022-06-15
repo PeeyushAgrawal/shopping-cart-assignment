@@ -12,11 +12,9 @@ const authSlice = createSlice({
 	initialState,
 	reducers: {
 		loginUser: (state, action) => {
-            console.log(state.users);
 			const foundUser = state.users.find(
 				(user) => user.email === action.payload.email
 			);
-            console.log(foundUser);
 			if (foundUser) {
 				if (foundUser.password === action.payload.password) {
 					state.loggedInUser = foundUser;

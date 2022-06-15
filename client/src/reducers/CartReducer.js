@@ -12,7 +12,6 @@ const cartSlice = createSlice({
 			);
 			if (existingItem.length > 0) {
 				existingItem[0].qty++;
-				console.log(existingItem);
 				state = state.map((item) =>
 					item.id === existingItem[0].id ? existingItem : item
 				);
